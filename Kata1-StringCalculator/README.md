@@ -1,4 +1,5 @@
-﻿# String Calculator
+﻿Source: https://codingdojo.org/kata/StringCalculator/
+# String Calculator
 
 This classic kata guides you step by step through the implementation of
 a calculator that receives a `String` as input. It is a good exercise on

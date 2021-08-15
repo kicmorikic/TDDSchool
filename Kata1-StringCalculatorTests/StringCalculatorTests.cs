@@ -35,7 +35,7 @@ namespace Kata1_StringCalculatorTests
         public void Add_SupplyTwoNumbers_ReturnsSumOfNumbers(string input, string expectedResult)
         {
             var result = _sut.Add(input);
-            result.Should().BeEquivalentTo(expectedResult, because: "Supplying two numbers should return the same number");
+            result.Should().BeEquivalentTo(expectedResult, because: "Supplying two numbers should give you sum of the numbers");
         }
     }
 }
