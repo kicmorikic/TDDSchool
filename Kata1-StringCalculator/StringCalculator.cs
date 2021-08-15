@@ -6,7 +6,14 @@ namespace Kata1_StringCalculator
     {
         public string Add(string stringOfNumbers)
         {
-            return "0";
+            if (string.IsNullOrWhiteSpace(stringOfNumbers))
+            {
+                return "0";
+            }
+            else
+            {
+                return stringOfNumbers;
+            }
         }
     }
 }
