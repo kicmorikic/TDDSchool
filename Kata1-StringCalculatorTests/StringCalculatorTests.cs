@@ -7,22 +7,35 @@ namespace Kata1_StringCalculatorTests
 {
     public class StringCalculatorTests
     {
+        private StringCalculator _sut;
+
+        public StringCalculatorTests()
+        {
+            _sut = new StringCalculator();
+        }
         [Fact]
         public void Add_SupplyEmptyString_Returns0()
         {
-            var sut = new StringCalculator();
-            var result = sut.Add("");
+            var result = _sut.Add("");
             result.Should().BeEquivalentTo("0", because: "adding nothing to nothing should give us nothing");
         }
         [Theory]
         [InlineData("0", "0")]
         [InlineData("1", "1")]
         [InlineData("1.4", "1.4")]
-        public void Add_SupplySingleNumber_ReturnsTheNumber(string input, string expectedOutput)
+        public void Add_SupplySingleNumber_ReturnsTheNumber(string input, string expectedResult)
         {
-            var sut = new StringCalculator();
-            var result = sut.Add(input);
-            result.Should().BeEquivalentTo(expectedOutput, because: "Supplying a single number should return the same number");
+            var result = _sut.Add(input);
+            result.Should().BeEquivalentTo(expectedResult, because: "Supplying a single number should return the same number");
+        }
+        [Theory]
+        [InlineData("1.1,2.2","3.3")]
+        [InlineData("0,1", "1")]
+        [InlineData("5.42,1", "6.42")]
+        public void Add_SupplyTwoNumbers_ReturnsSumOfNumbers(string input, string expectedResult)
+        {
+            var result = _sut.Add(input);
+            result.Should().BeEquivalentTo(expectedResult, because: "Supplying two numbers should return the same number");
         }
     }
 }
