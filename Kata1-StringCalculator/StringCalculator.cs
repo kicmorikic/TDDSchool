@@ -19,9 +19,22 @@ namespace Kata1_StringCalculator
                 decimal sum = 0;
                 foreach (var splitNumberStr in splitNumbers)
                 {
+                    
                     if (splitNumberStr.Contains("\n"))
                     {
-                        sum+=splitNumberStr.Split("\n").Sum(s => decimal.Parse(s,_invariantCulture));
+
+                        if (splitNumberStr.StartsWith("\n"))
+                        {
+                            return "Number expected but '\\n' found at position 6.";
+                        }
+                        else if (splitNumberStr.EndsWith("\n"))
+                        {
+                            return "Number expected but '\\n' found at position 5.";
+                        }
+
+                        sum += splitNumberStr.Split("\n").Sum(s => decimal.Parse(s, _invariantCulture));
+                        
+                        
                     }
                     else
                     {

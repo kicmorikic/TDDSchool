@@ -63,5 +63,16 @@ namespace Kata1_StringCalculatorTests
                 because: "Supplying many numbers should give you sum of the numbers");
         }
 
+        [Theory]
+        [InlineData("175.2,\n35", "Number expected but '\\n' found at position 6.")]
+        [InlineData("175.2\n,35", "Number expected but '\\n' found at position 5.")]
+        public void Add_supplyingStringWithNewlineBesideComma_ReturnsErrorMessage(string input, string expectedResult)
+        {
+            var result = _sut.Add(input);
+            result.Should().BeEquivalentTo(
+                expectedResult,
+                because: "Supplying two separators beside each other should result in error");
+        }
+
     }
 }
