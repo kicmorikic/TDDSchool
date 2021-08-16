@@ -52,5 +52,16 @@ namespace Kata1_StringCalculatorTests
                 expectedResult,
                 because: "Supplying many numbers should give you sum of the numbers");
         }
+        [Theory]
+        [InlineData("1\n2,3", "6")]
+        [InlineData("1\n1\n1\n1\n1", "5")]
+        public void Add_supplyingNumbersDelimitedWithNewline_ReturnsSumOfAllNumbers(string input, string expectedResult)
+        {
+            var result = _sut.Add(input);
+            result.Should().BeEquivalentTo(
+                expectedResult,
+                because: "Supplying many numbers should give you sum of the numbers");
+        }
+
     }
 }

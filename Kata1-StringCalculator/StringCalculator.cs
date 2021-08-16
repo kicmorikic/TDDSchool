@@ -16,9 +16,19 @@ namespace Kata1_StringCalculator
             else
             {
                 var splitNumbers = stringOfNumbers.Split(",");
-                var sum = splitNumbers.
-                        Sum(numberString => 
-                            decimal.Parse(numberString, _invariantCulture));
+                decimal sum = 0;
+                foreach (var splitNumberStr in splitNumbers)
+                {
+                    if (splitNumberStr.Contains("\n"))
+                    {
+                        sum+=splitNumberStr.Split("\n").Sum(s => decimal.Parse(s,_invariantCulture));
+                    }
+                    else
+                    {
+                        sum += decimal.Parse(splitNumberStr, _invariantCulture);
+                    }
+                }
+                
 
                 return sum.ToString(_invariantCulture);
             }
