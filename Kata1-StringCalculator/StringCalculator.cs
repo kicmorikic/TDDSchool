@@ -6,7 +6,7 @@ namespace Kata1_StringCalculator
 {
     public class StringCalculator
     {
-        readonly CultureInfo _invariantCulture = CultureInfo.InvariantCulture;
+        private readonly CultureInfo _invariantCulture = CultureInfo.InvariantCulture;
         public string Add(string stringOfNumbers)
         {
             if (string.IsNullOrWhiteSpace(stringOfNumbers))
