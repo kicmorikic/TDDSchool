@@ -26,7 +26,9 @@ namespace Kata1_StringCalculatorTests
         public void Add_SupplySingleNumber_ReturnsTheNumber(string input, string expectedResult)
         {
             var result = _sut.Add(input);
-            result.Should().BeEquivalentTo(expectedResult, because: "Supplying a single number should return the same number");
+            result.Should().BeEquivalentTo(
+                expectedResult, 
+                because: "Supplying a single number should return the same number");
         }
         [Theory]
         [InlineData("1.1,2.2","3.3")]
@@ -35,7 +37,20 @@ namespace Kata1_StringCalculatorTests
         public void Add_SupplyTwoNumbers_ReturnsSumOfNumbers(string input, string expectedResult)
         {
             var result = _sut.Add(input);
-            result.Should().BeEquivalentTo(expectedResult, because: "Supplying two numbers should give you sum of the numbers");
+            result.Should().BeEquivalentTo(
+                expectedResult, 
+                because: "Supplying two numbers should give you sum of the numbers");
+        }
+        [Theory]
+        [InlineData("1,4,5.5,0,1.1", "11.6")]
+        [InlineData("1,1,1,1,1","5")]
+        [InlineData("0,0,0,0,0", "0")]
+        public void Add_supplyingManyNumbers_ReturnsSumOfAllNumbers(string input, string expectedResult)
+        {
+            var result = _sut.Add(input);
+            result.Should().BeEquivalentTo(
+                expectedResult,
+                because: "Supplying many numbers should give you sum of the numbers");
         }
     }
 }
